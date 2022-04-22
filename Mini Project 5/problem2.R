@@ -46,3 +46,44 @@ b_proportion <- function(n, lambda) {
 }
 
 
+# Create a matrix of z_prop values with sorted by col of L values
+zci <- matrix(c(z_proportion(5, 0.01), z_proportion(10, 0.01),  z_proportion(30, 0.01), z_proportion(100, 0.01), 
+                z_proportion(5, 0.1),  z_proportion(10, 0.1), z_proportion(30, 0.1), z_proportion(100, 0.1), 
+                z_proportion(5, 1), z_proportion(10, 1), z_proportion(30, 1), z_proportion(100, 1),
+                z_proportion(5, 10), z_proportion(10, 10), z_proportion(30, 10), z_proportion(100, 10)), nrow = 4, ncol = 4)
+
+bci <- matrix(c(b_proportion(5, 0.01), b_proportion(10, 0.01),  b_proportion(30, 0.01), b_proportion(100, 0.01), 
+                       b_proportion(5, 0.1),  b_proportion(10, 0.1), b_proportion(30, 0.1), b_proportion(100, 0.1), 
+                       b_proportion(5, 1), b_proportion(10, 1), b_proportion(30, 1), b_proportion(100, 1),
+                       b_proportion(5, 10), b_proportion(10, 10), b_proportion(30, 10), b_proportion(100, 10)), nrow = 4, ncol = 4)
+
+par(mfrow=c(2,2))
+plot(c(5, 10, 30, 100), zci[, 1], xlab = 'n', ylab = 'proportion', main = "L = 0.01", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[, 1], type = 'b', col = 'blue')
+
+plot(c(5, 10, 30, 100), zci[, 2], xlab = 'n', ylab = 'proportion', main = "L = 0.1", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[, 2], type = 'b', col = 'blue')
+
+plot(c(5, 10, 30, 100), zci[, 3], xlab = 'n', ylab = 'proportion', main = "L = 1", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[, 3], type = 'b', col = 'blue')
+
+plot(c(5, 10, 30, 100), zci[, 4], xlab = 'n', ylab = 'proportion', main = "L = 10", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[, 4], type = 'b', col = 'blue')
+
+plot(c(5, 10, 30, 100), zci[1,], xlab = 'n', ylab = 'proportion', main = "N = 5", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[1,], type = 'b', col = 'blue')
+
+plot(c(5, 10, 30, 100), zci[2,], xlab = 'n', ylab = 'proportion', main = "N = 10", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[2,], type = 'b', col = 'blue')
+
+plot(c(5, 10, 30, 100), zci[3,], xlab = 'n', ylab = 'proportion', main = "N = 30", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[3,], type = 'b', col = 'blue')
+
+plot(c(5, 10, 30, 100), zci[4,], xlab = 'n', ylab = 'proportion', main = "N = 100", xlim = c(1, 100), ylim = c(0, 1), type = 'b', col = 'red')
+lines(c(5, 10, 30, 100), bci[4,], type = 'b', col = 'blue')
+
+
+
+
+
+
